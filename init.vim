@@ -1,4 +1,4 @@
-" Specify a directory for plugins
+"<Leader>r  Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
@@ -32,7 +32,6 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'mbbill/undotree'
 Plug 'rking/ag.vim'
 Plug 'groenewege/vim-less'
-Plug 'danchoi/ri.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'derekwyatt/vim-scala'
 Plug 'tpope/vim-rake'
