@@ -47,6 +47,8 @@ Plug 'tpope/vim-classpath'
 Plug 'mhinz/vim-mix-format'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'tpope/vim-rhubarb'
+Plug 'shumphrey/fugitive-gitlab.vim'
 
 " Initialize plugin system
 call plug#end()
