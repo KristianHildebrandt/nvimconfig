@@ -73,5 +73,3 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " paste multiple times
 xnoremap p pgvy
-
-set encoding=utf-8
