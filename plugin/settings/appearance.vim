@@ -4,3 +4,4 @@ syntax enable
 colorscheme onehalfdark
 set guifont=Monaco:h13
 :set guioptions-=L
+:highlight CocFloating ctermbg=darkgrey
