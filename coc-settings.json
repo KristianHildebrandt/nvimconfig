@@ -7,7 +7,7 @@
   "python": {
     "linting.flake8Enabled": true
   },
-"python.formatting.provider": "yapf",
+"python.formatting.provider": "black",
 "coc.preferences.formatOnSaveFiletypes": ["python"],
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "languageserver": {
