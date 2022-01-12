@@ -2,6 +2,13 @@
   "elixir": {
     "pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
   },
+  "diagnostic.checkCurrentLine": "true",
+  "python.linting.flake8Enabled": true,
+  "python": {
+    "linting.flake8Enabled": true
+  },
+"python.formatting.provider": "black",
+"coc.preferences.formatOnSaveFiletypes": ["python"],
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "languageserver": {
     "dockerfile": {
