@@ -1,5 +1,4 @@
-"<Leader>r  Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
+"<Leader>r  Specify a directory for plugins For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
@@ -46,6 +45,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'liuchengxu/vista.vim'
+Plug 'tpope/vim-abolish'
 
 " Initialize plugin system
 call plug#end()
