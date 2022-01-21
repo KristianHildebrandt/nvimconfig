@@ -11,12 +11,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-unimpaired'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-rails'
-Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-surround'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'valloric/MatchTagAlways'
@@ -52,3 +50,5 @@ call plug#end()
 
 let g:python_host_prog = '~/.asdf/installs/python/2.7.18/bin/python'
 let g:python3_host_prog = '~/.asdf/installs/python/3.10.0/bin/python'
+
+:let mapleader = ","
