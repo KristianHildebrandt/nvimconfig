@@ -45,10 +45,15 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-abolish'
 
+" python
+"Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
+
 " Initialize plugin system
 call plug#end()
 
-let g:python_host_prog = '~/.asdf/installs/python/2.7.18/bin/python'
-let g:python3_host_prog = '~/.asdf/installs/python/3.10.0/bin/python'
+let g:python_host_prog = $HOME . "/.pyenv/versions/neovim2/bin/python"
+let g:python3_host_prog = $HOME . "/.pyenv/versions/neovim3/bin/python"
+let g:coc_node_path = '/Users/khildebrandt/.asdf/installs/nodejs/18.2.0/bin/node'
 
 :let mapleader = ","
