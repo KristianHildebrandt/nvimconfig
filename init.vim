@@ -54,6 +54,6 @@ call plug#end()
 
 let g:python_host_prog = $HOME . "/.pyenv/versions/neovim2/bin/python"
 let g:python3_host_prog = $HOME . "/.pyenv/versions/neovim3/bin/python"
-let g:coc_node_path = '/Users/khildebrandt/.asdf/installs/nodejs/18.2.0/bin/node'
+let g:coc_node_path = $HOME . '/.asdf/installs/nodejs/18.2.0/bin/node'
 
 :let mapleader = ","
