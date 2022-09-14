@@ -44,6 +44,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-abolish'
+Plug 'mattn/emmet-vim'
 
 " python
 "Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
