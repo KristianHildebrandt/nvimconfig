@@ -4,7 +4,6 @@ set history=1000 "Store lots of :cmdline history
 set showcmd "Show incomplete cmds down the bottom
 set showmode "Show current mode down the bottom
 set visualbell "No sounds
-let mapleader="," "leader to comma
 set nocompatible "better save than sorry
 set mouse=a "mouse support
 set clipboard+=unnamed
