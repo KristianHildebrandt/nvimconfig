@@ -10,13 +10,11 @@ return {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "onsails/lspkind.nvim",
-      "zbirenbaum/copilot-cmp",
     },
     config = function()
       local cmp = require("cmp")
       local lspkind = require("lspkind")
 
-      require("copilot_cmp").setup()
 
       cmp.setup({
         snippet = {
@@ -36,7 +34,6 @@ return {
           end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-          { name = "copilot" },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "buffer" },
@@ -50,28 +47,6 @@ return {
           }),
         },
       })
-    end,
-  },
-
-  -- GitHub Copilot backend
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end,
-  },
-
-  -- Bridge between Copilot and cmp
-  {
-    "zbirenbaum/copilot-cmp",
-    dependencies = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
     end,
   },
 }
