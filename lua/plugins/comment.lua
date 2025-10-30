@@ -5,7 +5,7 @@ return {
     padding = true,
     sticky = true,
     mappings = {
-      basic = false,  -- disable default mappings
+      basic = false, -- disable default mappings
       extra = false,
     },
   },
