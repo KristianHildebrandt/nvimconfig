@@ -20,6 +20,10 @@ vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.expandtab = true
 
+vim.opt.number = true
+vim.opt.relativenumber = false
+vim.opt.signcolumn = "yes"
+
 require("lazy").setup({
   spec = { { import = "plugins" } },
   change_detection = { notify = false },
