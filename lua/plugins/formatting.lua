@@ -14,6 +14,7 @@ return {
           hcl       = { "terraform_fmt" },
           yaml      = { "yamlfmt" }, -- optional
           json      = { "jq" },
+          ruby      = { "rubocop" },
         },
       })
     end,

@@ -1,15 +1,15 @@
 return {
   -- Core LSP + installer + schemas (Neovim 0.11+ API)
-  { "williamboman/mason.nvim", config = true, build = ":MasonUpdate" },
+  { "williamboman/mason.nvim",          config = true,                             build = ":MasonUpdate" },
   { "williamboman/mason-lspconfig.nvim" },
   { "b0o/SchemaStore.nvim" },
 
   -- Elixir
-  { "elixir-tools/elixir-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "elixir-tools/elixir-tools.nvim",   dependencies = { "nvim-lua/plenary.nvim" } },
 
   -- Kubernetes helpers
-  { "diogo464/kubernetes.nvim" },   -- feeds CRDs to yamlls
-  { "towolf/vim-helm", ft = "helm" },
+  { "diogo464/kubernetes.nvim" }, -- feeds CRDs to yamlls
+  { "towolf/vim-helm",                  ft = "helm" },
 
   {
     -- Native LSP config using Neovim 0.11+ API (no require('lspconfig').*.setup)
@@ -29,15 +29,15 @@ return {
         local function map(mode, lhs, rhs, desc)
           vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
         end
-        map("n", "gd", vim.lsp.buf.definition,        "Go to definition")
-        map("n", "gr", vim.lsp.buf.references,        "References")
-        map("n", "K",  vim.lsp.buf.hover,             "Hover")
-        map("n", "gi", vim.lsp.buf.implementation,    "Implementation")
-        map("n", "<leader>rn", vim.lsp.buf.rename,    "Rename symbol")
-        map("n", "<leader>ca", vim.lsp.buf.code_action,"Code action")
+        map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+        map("n", "gr", vim.lsp.buf.references, "References")
+        map("n", "K", vim.lsp.buf.hover, "Hover")
+        map("n", "gi", vim.lsp.buf.implementation, "Implementation")
+        map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+        map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
         map("n", "<leader>fd", vim.diagnostic.open_float, "Line diagnostics")
-        map("n", "[d", vim.diagnostic.goto_prev,       "Prev diagnostic")
-        map("n", "]d", vim.diagnostic.goto_next,       "Next diagnostic")
+        map("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
+        map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
       end
 
       mason.setup({})
@@ -46,11 +46,11 @@ return {
           -- Lua
           "lua_ls",
           -- Python
-          "pyright","ruff",
+          "pyright", "ruff",
           -- Go
-          "gopls","golangci_lint_ls",
+          "gopls", "golangci_lint_ls",
           -- IaC
-          "terraformls","tflint",
+          "terraformls", "tflint",
           -- YAML / K8s
           "yamlls",
         },
@@ -65,7 +65,8 @@ return {
       })
 
       vim.lsp.config("pyright", { capabilities = capabilities, on_attach = on_attach })
-      vim.lsp.config("ruff",    { capabilities = capabilities, on_attach = on_attach, init_options = { settings = { args = {} } } })
+      vim.lsp.config("ruff",
+        { capabilities = capabilities, on_attach = on_attach, init_options = { settings = { args = {} } } })
 
       vim.lsp.config("gopls", {
         capabilities = capabilities,
@@ -82,7 +83,7 @@ return {
       vim.lsp.config("golangci_lint_ls", { capabilities = capabilities, on_attach = on_attach })
 
       vim.lsp.config("terraformls", { capabilities = capabilities, on_attach = on_attach })
-      vim.lsp.config("tflint",       { capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.config("tflint", { capabilities = capabilities, on_attach = on_attach })
 
       vim.lsp.config("yamlls", {
         capabilities = capabilities,
@@ -98,23 +99,30 @@ return {
       })
 
       -- Elixir via elixir-tools (ElixirLS by default; flip nextls.enable=true to use Next LS)
-      local elixir = require("elixir")
+      local elixir   = require("elixir")
       local elixirls = require("elixir.elixirls")
+
       elixir.setup({
-        nextls = { enable = false },
+        nextls = { enable = false }, -- you're not using Next LS
+        -- optional: credo helpers
+        -- credo = { enable = true },
+
         elixirls = {
-          enable = true,
+          enable = true,                                        -- use ElixirLS
+          cmd = { vim.fn.stdpath("data") .. "/mason/bin/elixir-ls" }, -- Mason path
           on_attach = on_attach,
           settings = elixirls.settings({
-            dialyzerEnabled = false,
+            dialyzerEnabled  = false, -- big speed win
             enableTestLenses = false,
+            fetchDeps        = false, -- don't run mix deps.get on attach
+            -- suggestSpecs   = false,          -- optional
           }),
         },
       })
 
       -- Activate all configured servers for their filetypes
       vim.lsp.enable({
-        "lua_ls","pyright","ruff","gopls","golangci_lint_ls","terraformls","tflint","yamlls",
+        "lua_ls", "pyright", "ruff", "gopls", "golangci_lint_ls", "terraformls", "tflint", "yamlls",
       })
 
       -- K8s: command to refresh CRDs into yamlls

@@ -24,6 +24,8 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
 
+vim.keymap.set("i", "jj", "<ESC>", { silent = true })
+
 require("lazy").setup({
   spec = { { import = "plugins" } },
   change_detection = { notify = false },

@@ -1,15 +1,15 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',  -- Automatically updates the parsers
+    run = ':TSUpdate', -- Automatically updates the parsers
     config = function()
-      require'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all"
         ensure_installed = {
-          "lua","elixir","heex","eex","python","terraform","hcl","yaml","json",
-          "bash","markdown","regex","gitcommit","gitignore",
+          "lua", "elixir", "heex", "eex", "python", "terraform", "hcl", "yaml", "json",
+          "bash", "markdown", "regex", "gitcommit", "gitignore", "javascript", "typescript",
           -- Go
-          "go","gomod","gowork",
+          "go", "gomod", "gowork",
         },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -18,7 +18,6 @@ return {
         -- Automatically install missing parsers when entering buffer
         auto_install = true,
 
-        -- List of parsers to ignore installing (or "all")
         ignore_install = { "javascript" },
 
         highlight = {
