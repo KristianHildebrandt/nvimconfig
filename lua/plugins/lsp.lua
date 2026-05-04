@@ -25,20 +25,30 @@ return {
       local capabilities = cmp_lsp.default_capabilities()
 
       -- Common on_attach: standard LSP keymaps
-      local function on_attach(_, bufnr)
-        local function map(mode, lhs, rhs, desc)
-          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
-        end
-        map("n", "gd", vim.lsp.buf.definition, "Go to definition")
-        map("n", "gr", vim.lsp.buf.references, "References")
-        map("n", "K", vim.lsp.buf.hover, "Hover")
-        map("n", "gi", vim.lsp.buf.implementation, "Implementation")
-        map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
-        map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
-        map("n", "<leader>fd", vim.diagnostic.open_float, "Line diagnostics")
-        map("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
-        map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
-      end
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(event)
+          local bufnr = event.buf
+
+          local function map(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, {
+              buffer = bufnr,
+              silent = true,
+              desc = desc,
+            })
+          end
+
+          map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+          map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+          map("n", "gr", vim.lsp.buf.references, "References")
+          map("n", "K", vim.lsp.buf.hover, "Hover")
+          map("n", "gi", vim.lsp.buf.implementation, "Implementation")
+          map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+          map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("n", "<leader>fd", vim.diagnostic.open_float, "Line diagnostics")
+          map("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
+          map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
+        end,
+      })
 
       mason.setup({})
       mlsp.setup({
@@ -108,7 +118,7 @@ return {
         -- credo = { enable = true },
 
         elixirls = {
-          enable = true,                                        -- use ElixirLS
+          enable = true,                                              -- use ElixirLS
           cmd = { vim.fn.stdpath("data") .. "/mason/bin/elixir-ls" }, -- Mason path
           on_attach = on_attach,
           settings = elixirls.settings({
